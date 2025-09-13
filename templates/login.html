@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='login.css')}}">
+</head>
+<body>
+    <center>
+        <div class="front">
+            <h2 style="text-decoration: underline;">SIGN IN</h2>
+            <form method="POST" action="/login">
+                <label for="email" class="label">Email:</label><br>
+                <input type="email" name="email" placeholder="Enter your email" required><br><br>
+
+                <label for="password" class="label">Password:</label><br>
+                <input type="password" name="password" placeholder="Enter your password" required><br><br>
+
+                <button type="submit">SIGN IN</button><br><br>
+            </form>
+            <a href="#">Forgot password?</a><br><br>
+            <p>Don't have an account? <a href="/register">Sign Up</a></p>
+        </div>
+    </center>
+</body>
+</html>

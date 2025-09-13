@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+   <link rel="stylesheet" href="{{url_for('static',filename='employee-details.css')}}">
+</head>
+<body>
+    <div class="hero">
+        <h1 class="mute">Welcome to the employee details page</h1>
+    </div>
+    <nav class="black">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/employee-details">Employee Details</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="add-employee">
+            <h2>Add New Employee</h2>
+            <form id="employeeForm" method="POST">
+                <label for="empName">Name:</label>
+                <input type="text" id="empName" name="empName" required><br>
+
+                <label for="empId">Employee ID:</label>
+                <input type="text" id="empId" name="empId" required><br>
+
+                <label for="empDept">Department:</label>
+                <input type="text" id="empDept" name="empDept" required><br>
+
+                <label for="empEmail">Email:</label>
+                <input type="email" id="empEmail" name="empEmail" required><br>
+
+                <button type="submit">Add Employee</button>
+            </form>
+        </section>
+
+        <section class="employee-list">
+            <h2>Saved Employee Details</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Employee ID</th>
+                        <th>Department</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in employees %}
+                        <tr>
+                            <td>{{ emp.name }}</td>
+                            <td>{{ emp.employee_id }}</td>
+                            <td>{{ emp.department }}</td>
+                            <td>{{ emp.email }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
